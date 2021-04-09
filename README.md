@@ -3,7 +3,31 @@
 框架结构图
 -------
 
-![](https://github.com/pigeon-xu/miaosha/raw/main/框架结构图.jpg)
+![](https://github.com/pigeon-xu/miaosha/raw/main/框架结构图1.jpg)
+
+
+#### 数据层：
+
+* 事务@Transcantional注解的处理方式—表示处于一个事务当中，若一个事务中有任何一个步骤失败，事务就会回滚
+* 数据接入层数据Dao
+* 本地缓存、集中式缓存在商品详情页的应用，提高流式读取的效率
+<br>
+   整个流程是：
+
+   整个页面基于HTML、CSS，然后基于JavaScript的jQuery库发送了一个动态交互的请求，给接入层controller进行通用处理，然后我们基于SpringMVC的controller层会向业务层调用相应的服务，
+
+业务层会调用数据层的Dao，通过事务管理数据DaoMapper的方式将数据的增删改查落入到数据库中，最后到本地电脑中
+
+![](https://github.com/pigeon-xu/miaosha/raw/main/框架结构图2.jpg)
+数据模型（Data Object）：借助于Mybatis的ORM操作将关系型数据库的表结构，通过XML的方式，定义成Java的Object结构
+
+领域模型（Domain Model）：具有一个对象的生命周期（创建、更新、删除、消亡），它可以和数据模型组合，比如用户对象是一个领域模型，它是由用户基本信息+用户密码信息两个数据模型共同组成的。
+
+贫血模型：项目里的用户对象就设计成贫血模型：指的是拥有各种属性信息和get、set方法，但是不包含有登陆、注册等功能
+
+项目详细设计
+---------
+![](https://github.com/pigeon-xu/miaosha/raw/main/项目详细设计图.jpg)
 
 
 实现功能
