@@ -74,7 +74,7 @@ allowCredentials 授信后，需前端也设置 xhfFields 授信才能实现跨�
  在generatorOrderNo方法前加注解：
  Transactional(propagation = Propagation.REQUIRES_NEW)
 ```
-#### 7. 使用聚合模型在itemModel加入PromoModel promoModel，若不为空表示其有未结束的秒杀活动；
+#### 8. 使用聚合模型在itemModel加入PromoModel promoModel，若不为空表示其有未结束的秒杀活动；
     在orderModel中加入promoId，若不为空，则以秒杀方式下单
 资源
 ----
